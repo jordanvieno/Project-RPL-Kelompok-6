@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPKB IPB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET & FONTS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #e6efff;
+      color: #222;
+    }
+
+    header {
+      display: flex;
+      margin-top: -8px;
+      margin-left: 0px;
+      justify-content: space-between;
+      align-items: center;
+      height: 73px;
+      background-color: white;
+      padding: 0 40px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ddd;
+      position: fixed;
+      width: 100%;
+      z-index: 300;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo {
+      width: 250px;
+      height: auto;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      position: relative;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .dropdown1, .dropdown2 {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: none;
+      flex-direction: column;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .dropdown1 a, .dropdown2 a {
+      padding: 8px 16px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .dropdown1 a:hover, .dropdown2 a:hover {
+      background-color: #eee;
+    }
+
+    .nav-item:hover .dropdown1,
+    .nav-item:hover .dropdown2 {
+      display: flex;
+    }
+
+    nav a {
+      color: #000080;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background-color: #000080;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+    }
+
+    .naskah-akademik,
+    .roadmap {
+      padding: 100px 40px 60px;
+      text-align: center;
+      background-color: #e6efff;
+    }
+
+    .naskah-akademik h2,
+    .roadmap h2 {
+      font-size: 28px;
+      color: #003399;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background-color: white;
+      width: 200px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 0 1 calc(33.333% - 40px);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 12px 16px;
+      color: #003399;
+      line-height: 1.4;
+    }
+
+    .card .button {
+      margin-top: auto;
+      margin-bottom: 16px;
+      padding: 8px 16px;
+      border: 1px solid #003399;
+      background-color: #fff;
+      color: #003399;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .card .button:hover {
+      background-color: #003399;
+      color: #fff;
+    }
+
+    #footer {
+      position: relative;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+      width: 100%;
+      background: linear-gradient(to bottom, #2D55AC, #0C0B8B);
+    }
+
+    #footer .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 100px;
+      gap: 40px;
+      z-index: 1;
+      height: 200px;
+    }
+
+    #footer .footer .bpkbf, .alamatb, .campus-location {
+      flex: 1 1 250px;
+      color: #fff;
+    }
+
+    #footer .footer h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1px;
+    }
+
+    #footer .footer a, p {
+      font-size: 0.85rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #footer .footer a:hover {
+      text-decoration: underline;
+    }
+
+    #footer .contactus div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    #footer .contactus img {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPKB IPB</title>
+  <link rel="stylesheet" href="roadmap.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ <!-- ===== HEADER SECTION ===== -->
+  <header>
+    <div class="logo-container">
+      <img class="logo" src="images/logo-bpkb.png" alt="Logo BPKB"/>
+    </div>
+    <div class="header-right">
+      <nav>
+        <!-- HOME -->
+        <div class="nav-item">
+          <a href="#home">Home</a>
+          <div class="dropdown1">
+            <a href="#home">Home</a>
+            <a href="#rank">Rangking</a>
+            <a href="#news">News</a>
+            <a href="#dokumentasi">Dokumentasi</a>
+            <a href="#ops">Operations</a>
+          </div>
+        </div>
+        <!-- ABOUT US -->
+        <div class="nav-item">
+          <a href="#about">About Us</a>
+          <div class="dropdown2">
+            <a href="#introduction">Introduction</a>
+            <a href="#fungsi">FUngsi BPKB</a>
+            <a href="#struktur">Struktur Organisasi</a>
+          </div>
+        </div>
+        <!-- DOCUMENT -->
+        <div class="nav-item">
+          <a href="#roadmap">Road Map</a>
+        </div>
+      </nav>
+      <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <img class="search-icon" src="images/352091_search_icon1.png" alt="search icon"></img>
+    </div>
+  </header>
+
+  <!-- ===== Road Map SECTION ===== -->
+  <section class="roadmap">
+    <div class="roadmap-bpkb">
+      <h2>Road Map</h2>
+    </div>
+    <div class="container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="images/road-map.png" alt="Gambar Roadmap" />
+        <h2>Rencana Jangka Panjang IPB<br>2019 - 2025</h2>
+        <a href="https://drive.google.com/file/d/1S40vBaUNF5KCWKvRkoYhvQxFDvCw-uuz/view?usp=drive_link" target="_blank" class="button">Read More</a>
+      </div>
+
+  </section>
+
+  <!-- ===== Naskah Akademik SECTION ===== -->
+  <section class="naskah-akademik">
+    <div class="naskah-bpkb">
+      <h2>Magazine</h2>
+    </div>
+    <div class="container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="images/ipb-suv.png" alt="Gambar Roadmap" />
+        <h2>IPB SUV</h2>
+        <a href="https://drive.google.com/file/d/124m44iyncjnRudxFP-w15ejV02AVlCo4/view?usp=drive_link" target="_blank" class="button">Read More</a>
+      </div>
+
+      <!-- Duplikasi card untuk lainnya -->
+        <div class="card">
+          <img src="images/ipb-town.png" alt="Gambar Roadmap" />
+          <h2>IPB TOWN</h2>
+          <a href="https://drive.google.com/file/d/10DBc1m6SYkJZG08EjVAU1TeZgLkZSoW9/view?usp=drive_link" target="_blank" class="button">Read More</a>
+        </div>
+
+        <!-- Tambahkan lebih banyak card sesuai kebutuhan -->
+  </section>
+
+  <!-- ===== Sustainability Module SECTION ===== -->
+  <section class="naskah-akademik">
+    <div class="naskah-bpkb">
+      <h2>Integrated Sustainability Report and Learning Module</h2>
+    </div>
+    <div class="container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="images/sustainability-report.png" alt="Gambar Roadmap" />
+        <h2>Sustainability Report</h2>
+        <a href="https://drive.google.com/file/d/1EYa9b2eEGOHBS76WzQq5E81VNZvNQL5z/view?usp=drive_link target="_blank" class="button">Read More</a>
+      </div>
+
+      <!-- Duplikasi card untuk lainnya -->
+        <div class="card">
+          <img src="images/life-action.png" alt="Gambar Roadmap" />
+          <h2>Sustainable Lifestyle Action</h2>
+          <a href="https://drive.google.com/file/d/12E9UyQNOc9yBtYM8Zlzzi3MI24bLDbCw/view?usp=drive_link" target="_blank" class="button">Read More</a>
+        </div>
+
+        <div class="card">
+          <img src="images/mindful-sustainability.png"Gambar Roadmap" />
+          <h2>Mindful Sustainability Compass</h2>
+          <a href="https://drive.google.com/file/d/1qjcaa0xKjOGoG7ZvqXhWUxPkh1x3izNs/view?usp=drive_link" target="_blank" class="button">Read More</a>
+        </div>
+  </section>
+    
+
+  <!-- ===== Policy Brief SECTION ===== -->
+  <section class="naskah-akademik">
+    <div class="naskah-bpkb">
+      <h2>Policy Brief</h2>
+    </div>
+    <div class="container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="images/tata-ruang.png" alt="Gambar Roadmap" />
+        <h2>Penguatan Tata Ruang Kota dalam Mitigasi Dampak Perubahan Iklim</h2>
+        <a href="https://journal.ipb.ac.id/index.php/agro-maritim/article/view/59033/29430"_blank" class="button">Read More</a>
+      </div>
+
+      <!-- Duplikasi card untuk lainnya -->
+        <div class="card">
+          <img src="images/waste.png" alt="Gambar Roadmap" />
+          <h2>Wujudkan Kampus Berkelanjutan melalui Regenerative Waste Governance</h2>
+          <a href="https://journal.ipb.ac.id/index.php/agro-maritim/article/view/56638/29270" target="_blank" class="button">Read More</a>
+        </div>
+
+        <div class="card">
+          <img src="images/polbrief-nature.png" alt="Gambar Roadmap" />
+          <h2>Komitmen IPB University sebagai Nature Positive Universities</h2>
+          <a href="https://journal.ipb.ac.id/index.php/agro-maritim/article/view/56649/29268" target="_blank" class="button">Read More</a>
+        </div>
+  </section>
+
+  <!-- ===== FOOTER SECTION ===== -->
+    <footer id="footer">
+        <div class="footer">
+      
+
+            <div class="bpkbf">
+                <h4 class="titbpkb">BPKB IPB University</h4>
+                <p class="judulf">Badan Pengembangan Kampus Berkelanjutan IPB University</p>
+            <div class="contactus">
+            <h4 class="tittlec">Contact Us:</h4>  
+        
+            <div class="emailll">
+                <img src="images/mailcon.png" alt="mail icon" class="mail">
+                <a href="mailto:bpkb@apps.ipb.ac.id?subject=Pertanyaan%20dari%20Website" class="email">bpkb@apps.ipb.ac.id</a>
+            </div>
+
+            <div class="telppp">
+                <img src="images/callcon.png" alt="call icon" class="telp">
+                <a href="tel:+6281454575">+62-8145-4575</a>
+            </div>
+
+            <div class="instagrammmm">
+                <img src="images/igcon.png" alt="instagram icon" class="iggg">
+                <a href="https://www.instagram.com/bpkbipb?igsh=YnNxcnZwZmNyZjFh" class="ig">@bpkbipb</a>
+            </div>
+            </div>
+
+        </div>
+
+        <div class="alamatb">
+        <h4 class="titalamat">Location</h4>
+        <div class="alamatttssss">
+            <img src="images/loccon.png" alt="icon location" class="loccon">
+            <a class="alamat" href="https://maps.app.goo.gl/WREwn5KjrmAi8rdMA" target="_blank">Gedung B Perpustakaan Lt. 4, Kampus IPB Dramaga, Dramaga, Bogor, Jawa Barat, Indonesia, 16680</a>
+        </div>
+        
+        </div>
+            <div class="campus-location">
+                <h4>Campus Location</h4>
+                <ul>
+                    <li><a href="https://maps.app.goo.gl/Pmt6GtwjoD71S1M19" target="_blank">IPB Dramaga</a></li>
+                    <li><a href="https://maps.app.goo.gl/tH5zvpEaG71hm93n9" target="_blank">IPB Baranangsiang</a></li>
+                    <li><a href="https://maps.app.goo.gl/QEMyNJCdAvfng39D6" target="_blank">IPB Taman Kencana</a></li>
+                    <li><a href="https://maps.app.goo.gl/i6HqNLEUosaGkqtBA" target="_blank">IPB Gunung Gede</a></li>
+                    <li><a href="https://maps.app.goo.gl/r3LB6zvrGQuSTwQz8" target="_blank">IPB Cilibende</a></li>
+                    <li><a href="https://maps.app.goo.gl/f6mR3qRSXQLbHUCb7" target="_blank">IPB Sukabumi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="br">
+        <p class="tulisan">© 2025 Badan Pengembangan Kampus Berkelanjutan. All rights reserved.</p>
+        </div>
+  </footer>
+
+
+</body>
+</html>
