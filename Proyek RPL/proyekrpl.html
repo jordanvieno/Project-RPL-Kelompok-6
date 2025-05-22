@@ -8,6 +8,453 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* RESET & FONTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #e6efff;
+  color: #222;
+}
+
+/* === HEADER (DIKUNCI SESUAI PERMINTAAN) === */
+/* HEADER */
+header {
+  display: flex;
+  margin-top: -8px;
+  margin-left: 0px;
+  justify-content: space-between;
+  align-items: center;
+  height: 73px;
+  background-color: white;
+  padding: 0 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  width: 100%;
+  z-index: 300;
+}
+header .logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+}
+
+header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+header nav {
+  display: flex;
+  gap: 30px;
+  position: relative;
+  align-items: center;
+}
+header nav .nav-item {
+  position: relative;
+}
+header nav .nav-item .dropdown1,
+header nav .nav-item .dropdown2 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  z-index: 999;
+}
+header nav .nav-item .dropdown1 a,
+header nav .nav-item .dropdown2 a {
+  padding: 8px 16px;
+  color: black;
+  text-decoration: none;
+}
+header nav .nav-item .dropdown1 a:hover,
+header nav .nav-item .dropdown2 a:hover {
+  background-color: #eee;
+}
+header nav .nav-item:hover .dropdown1,
+header nav .nav-item:hover .dropdown2 {
+  display: flex;
+}
+header nav a {
+  color: #000080;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+}
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #000080;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+header nav a:hover::after {
+  transform: scaleX(1);
+}
+header nav .dropdown3 {
+  display: none;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative; /* <-- ini penting kalau kamu pakai absolute */
+}
+
+
+.search-bar input[type="text"] {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  display: block;
+  opacity: 1;
+}
+
+
+
+/* === INTRO SECTION === */
+.intro {
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #e6efff;
+}
+.intro-bpkb {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+.intro-bpkb h1 {
+  color: #2D55AC;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.intro-bpkb h2 {
+  color: #2D55AC;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.intro-bpkb p {
+  line-height: 1.6;
+  font-size: 14px;
+  color: #2D55AC;
+}
+
+/* === FUNGSI SECTION === */
+.fungsi {
+  padding: 50px 120px 80px 120px;
+  background-color: #e6efff;
+}
+.fungsi-bpkb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.fungsi-seckiri {
+  position: relative;  /* penting! */
+  flex: 1;
+  text-align: center;
+  display: inline-block; /* agar tinggi mengikuti isi */
+}
+
+.fungsi-seckiri-img{
+  flex: 1;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 500px;
+  height: 400px;
+  opacity: 1;
+
+}
+
+.lingkaran {
+  position: absolute;
+  bottom: 10px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 388px;
+  background-color: navy;
+  border-radius: 30%;
+  z-index: 1;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.fungsi-seckanan {
+  background-color: #fff;
+  margin: auto;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+  flex: 2;
+}
+.fungsi-bpkb h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2D55AC;
+}
+.fungsi-bpkb ul {
+  padding-left: 20px;
+  font-size: 20px;
+  color: #2D55AC;
+}
+.fungsi-list li {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  text-align: justify;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideIn 0.6s ease forwards;
+}
+.fungsi-list li:nth-child(1) { animation-delay: 0.2s; }
+.fungsi-list li:nth-child(2) { animation-delay: 0.4s; }
+.fungsi-list li:nth-child(3) { animation-delay: 0.6s; }
+.fungsi-list li:nth-child(4) { animation-delay: 0.8s; }
+.fungsi-list li:nth-child(5) { animation-delay: 1.0s; }
+fungsi-list li:nth-child(6) { animation-delay: 1.2s; }
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === STRUKTUR SECTION === */
+.struktur {
+  padding: 40px;
+  background-color: #e6efff;
+  position: relative;
+  padding: 100px;
+}
+.struktur::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: url('wave.svg') no-repeat center;
+  background-size: cover;
+}
+.struktur-bpkb h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 600;
+  color: #2D55AC;
+}
+.tim-bpkb-img {
+  padding: 40px 40px 40px 40px;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+.tree ul {
+  padding-top: 20px;
+  position: relative;
+  transition: all 0.5s;
+}
+.tree li {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+  padding: 20px 5px 0 5px;
+  vertical-align: top;
+}
+.tree li::before, .tree li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 1px solid #ccc;
+  width: 50%;
+  height: 20px;
+}
+.tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 1px solid #ccc;
+}
+.tree li:only-child::before, 
+.tree li:only-child::after {
+  display: none;
+}
+.tree li:only-child {
+  padding-top: 0;
+}
+.tree li:first-child::before, 
+.tree li:last-child::after {
+  border: 0 none;
+}
+.tree li:last-child::before {
+  border-right: 1px solid #ccc;
+  border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after {
+  border-radius: 5px 0 0 0;
+}
+.tree .box {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  min-width: 150px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+
+
+#footer {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(to bottom, #2D55AC, #0C0B8B);
+}
+#footer .footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 100px;
+  gap: 40px;
+  z-index: 1;
+  height: 200px;
+}
+#footer .footer .bpkbf, #footer .footer .alamatb, #footer .footer .campus-location {
+  flex: 1 1 250px;
+  color: #fff;
+}
+#footer .footer .bpkbf h4, #footer .footer .alamatb h4, #footer .footer .campus-location h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+#footer .footer .bpkbf p, #footer .footer .bpkbf a, #footer .footer .bpkbf li a, #footer .footer .alamatb p, #footer .footer .alamatb a, #footer .footer .alamatb li a, #footer .footer .campus-location p, #footer .footer .campus-location a, #footer .footer .campus-location li a {
+  font-size: 0.85rem;
+  color: #fff;
+  line-height: 1.5;
+  text-decoration: none;
+}
+#footer .footer .bpkbf p:hover, #footer .footer .bpkbf a:hover, #footer .footer .bpkbf li a:hover, #footer .footer .alamatb p:hover, #footer .footer .alamatb a:hover, #footer .footer .alamatb li a:hover, #footer .footer .campus-location p:hover, #footer .footer .campus-location a:hover, #footer .footer .campus-location li a:hover {
+  text-decoration: underline;
+}
+#footer .footer .bpkbf ul, #footer .footer .alamatb ul, #footer .footer .campus-location ul {
+  list-style: none;
+  padding: 0;
+}
+#footer .footer .bpkbf ul li, #footer .footer .alamatb ul li, #footer .footer .campus-location ul li {
+  margin-bottom: 1px;
+}
+#footer .footer .contactus {
+  margin-top: 20px;
+}
+#footer .footer .contactus .tittlec {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+#footer .footer .contactus div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+#footer .footer .contactus div img {
+  width: 20px;
+  height: 20px;
+}
+#footer .footer .contactus div a {
+  font-size: 0.85rem;
+  color: #fff;
+  text-decoration: none;
+}
+#footer .footer .contactus div a:hover {
+  text-decoration: underline;
+}
+#footer .footer .alamatb a.alamat {
+  display: block;
+  max-width: 240px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+#footer .footer .alamatb .loccon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 4px;
+}
+@media (max-width: 768px) {
+  #footer .footer {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+  #footer .footer .bpkbf, #footer .footer .alamatb, #footer .footer .campus-location {
+    width: 100%;
+  }
+}
+#footer .tulisan {
+  margin-bottom: 0px;
+  background: #fff;
+  width: 100%;
+  padding: 15px 100px;
+  font-size: 14px;
+  color: #000;
+}/*# sourceMappingURL=exte
+  </style>
+
 </head>
 <body>
  <!-- ===== HEADER SECTION ===== -->
@@ -39,7 +486,7 @@
         </div>
         <!-- DOCUMENT -->
         <div class="nav-item">
-          <a href="#document">Document</a>
+          <a href="#roadmap">Road Map</a>
         </div>
       </nav>
       <div class="search-bar">
@@ -90,7 +537,7 @@
       <div class="tree">
         <ul>
           <li>
-            <div class="box"><h3>Ketua BPKB</h3><br>Dr. Ir. Ibnul Qayim></div>
+            <div class="box"><h3>Ketua BPKB</h3><br>Dr. Ir. Ibnul Qayim</div>
             <ul>
               <li>
                 <div class="box"><h3>Wakil Ketua Pengembangan Infrastruktur</h3><br>Dr. Heriansyah Putra</div>
@@ -120,5 +567,64 @@
 
     </div>
   </section>
+
+  <!-- ===== FOOTER SECTION ===== -->
+  <footer id="footer">
+    <div class="footer">
+      
+
+    <div class="bpkbf">
+      <h4 class="titbpkb">BPKB IPB University</h4>
+      <p class="judulf">Badan Pengembangan Kampus Berkelanjutan IPB University</p>
+
+      <div class="contactus">
+      <h4 class="tittlec">Contact Us:</h4>  
+      
+      <div class="emailll">
+        <img src="images/mailcon.png" alt="mail icon" class="mail">
+        <a href="mailto:bpkb@apps.ipb.ac.id?subject=Pertanyaan%20dari%20Website" class="email">bpkb@apps.ipb.ac.id</a>
+      </div>
+
+      <div class="telppp">
+        <img src="images/callcon.png" alt="call icon" class="telp">
+        <a href="tel:+6281454575">+62-8145-4575</a>
+      </div>
+
+      <div class="instagrammmm">
+        <img src="images/igcon.png" alt="instagram icon" class="iggg">
+        <a href="https://www.instagram.com/bpkbipb?igsh=YnNxcnZwZmNyZjFh" class="ig">@bpkbipb</a>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="alamatb">
+      <h4 class="titalamat">Location</h4>
+      <div class="alamatttssss">
+        <img src="images/loccon.png" alt="icon location" class="loccon">
+        <a class="alamat" href="https://maps.app.goo.gl/WREwn5KjrmAi8rdMA" target="_blank">Gedung B Perpustakaan Lt. 4, Kampus IPB Dramaga, Dramaga, Bogor, Jawa Barat, Indonesia, 16680</a>
+      </div>
+    </div>
+
+    <div class="campus-location">
+      <h4>Campus Location</h4>
+      <ul>
+        <li><a href="https://maps.app.goo.gl/Pmt6GtwjoD71S1M19" target="_blank">IPB Dramaga</a></li>
+        <li><a href="https://maps.app.goo.gl/tH5zvpEaG71hm93n9" target="_blank">IPB Baranangsiang</a></li>
+        <li><a href="https://maps.app.goo.gl/QEMyNJCdAvfng39D6" target="_blank">IPB Taman Kencana</a></li>
+        <li><a href="https://maps.app.goo.gl/i6HqNLEUosaGkqtBA" target="_blank">IPB Gunung Gede</a></li>
+        <li><a href="https://maps.app.goo.gl/r3LB6zvrGQuSTwQz8" target="_blank">IPB Cilibende</a></li>
+        <li><a href="https://maps.app.goo.gl/f6mR3qRSXQLbHUCb7" target="_blank">IPB Sukabumi</a></li>
+      </ul>
+    </div>
+
+    </div>
+
+    <div class="br">
+      <p class="tulisan">© 2025 Badan Pengembangan Kampus Berkelanjutan. All rights reserved.</p>
+    </div>
+  </footer>
+
+
 </body>
 </html>
