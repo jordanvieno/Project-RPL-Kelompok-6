@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Daftar Berita</title>
+  <!--<link href="adminberita.css" rel="stylesheet" /> -->
+    <style>
+      * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #e7f0ff;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .actions input {
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .search {
+      position: relative;
+    }
+
+    .search input {
+      padding: 8px 35px 8px 10px; /* padding kanan ditambah untuk beri ruang ikon */
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 200px; /* opsional, agar lebih jelas bentuknya */
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      pointer-events: none; /* supaya klik tidak terganggu */
+    }
+
+
+    .add-news {
+      background-color: #3f3fff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    .news-table {
+      margin-top: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .table-header,
+    .news-row {
+      display: grid;
+      grid-template-columns: 3fr 2fr 1fr 1fr;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .news-row:last-child {
+      border-bottom: none;
+    }
+
+    .status {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .status.uploaded {
+      background-color: #ccf2e2;
+      color: #007c65;
+    }
+
+    .status.draft {
+      background-color: #e6e6e6;
+      color: #666;
+    }
+
+    .edit-btn,
+    .delete-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .delete-btn {
+      color: red;
+    }
+
+    .edit-btn {
+      color: #3366cc;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Sidebar -->
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h1>Berita</h1>
+        <div class="actions">
+          <div class="search">
+            <input type="text" placeholder="search" />
+            <img class="search-icon" src="images/352091_search_icon1.png" alt="search icon"></img>
+          </div>
+          <button class="add-news">Tambah Berita +</button>
+        </div>
+      </header>
+
+      <section class="news-table">
+        <div class="table-header">
+          <span>Judul Berita</span>
+          <span>Tanggal Publikasi</span>
+          <span>Status</span>
+          <span>Actions</span>
+        </div>
+
+        <!-- Baris berita -->
+        <div class="news-row">
+          <span>Judul Berita Judul Berita Judul Berita</span>
+          <span><i class="calendar-icon"></i> 12 Dec, 2021</span>
+          <span class="status uploaded">Terunggah</span>
+          <span class="actions">
+            <button class="edit-btn">✏️</button>
+            <button class="delete-btn">🗑️</button>
+          </span>
+        </div>
+
+        <div class="news-row">
+          <span>Judul Berita Judul Berita Judul Berita</span>
+          <span><i class="calendar-icon"></i> 12 Dec, 2021</span>
+          <span class="status draft">Draft</span>
+          <span class="actions">
+            <button class="edit-btn">✏️</button>
+            <button class="delete-btn">🗑️</button>
+          </span>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
