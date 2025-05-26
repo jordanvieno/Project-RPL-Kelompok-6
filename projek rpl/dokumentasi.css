@@ -1,0 +1,309 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-color: #DBE7FF;
+  --sidebar-color: #fff;
+  --primary-color: #3A36DB;
+  --primary-color-light: #6254FF;
+  --toggle-color: #3A36DB;
+  --text-color: #BBC4CC;
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
+}
+
+body {
+  background: var(--body-color);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  padding: 10px 14px;
+  background: var(--sidebar-color);
+  transition: var(--tran-05);
+  z-index: 100;
+}
+
+.sidebar li {
+  height: 50px;
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: var(--tran-04);
+}
+
+.sidebar li a .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.sidebar li a .text {
+  color: var(--text-color);
+  white-space: nowrap;
+  opacity: 1;
+  transition: var(--tran-03);
+}
+
+.sidebar li a:hover {
+  background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+  color: var(--sidebar-color);
+}
+
+.sidebar header {
+  position: relative;
+}
+
+.sidebar header .toggle {
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  transform: translateY(-50%) rotate(180deg);
+  height: 23px;
+  width: 23px;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+
+.sidebar header .imgtext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  position: relative;
+}
+
+.sidebar header .imgtext .image1,
+.sidebar header .imgtext .image2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--tran-05);
+  padding-top: 20px;
+}
+
+.sidebar header .imgtext .apaya1 {
+  width: 100px;
+}
+
+.sidebar header .imgtext .apaya2 {
+  width: 160px;
+}
+
+.sidebar .menu-bar {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.sidebar.close {
+  width: 88px;
+}
+
+.sidebar.close .text {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sidebar.close header .toggle {
+  transform: translateY(-50%);
+}
+
+.sidebar.close header .apaya1 {
+  opacity: 1;
+  visibility: visible;
+  width: 40px;
+}
+
+.sidebar.close header .apaya2 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar.close .imgtext {
+  justify-content: center;
+}
+
+.sidebar:not(.close) .apaya1 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar:not(.close) .apaya2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+  position: relative;
+  left: 250px;
+  width: calc(100% - 250px);
+  padding: 40px;
+  transition: var(--tran-05);
+  min-height: 100vh;
+  background-color: var(--body-color);
+}
+
+.sidebar.close ~ .main {
+  left: 88px;
+  width: calc(100% - 88px);
+}
+
+.main h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+/* ===== GRID & CARD ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  height: auto; /* biar proporsional dan normal */
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.card-text {
+  padding: 12px 16px;
+}
+
+.card-text .judul {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.card-text .label {
+  font-weight: 500;
+  color: #888;
+}
+
+
+.card .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 16px;
+  flex-wrap: wrap;
+}
+
+.card .actions .date {
+  flex: 1;
+}
+
+.card .actions button {
+  border: none;
+  padding: 9px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  margin-top: 40px;
+  margin-left: 6px;
+}
+
+.card .date {
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 40px;
+}
+
+.card .edit {
+  background: #4F46E5;
+}
+
+.card .delete {
+  background: #DC2626;
+}
+
+.fab-add {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 200;
+  transition: 0.3s;
+}
+
+.fab-add:hover {
+  background-color: var(--primary-color-light);
+}
+

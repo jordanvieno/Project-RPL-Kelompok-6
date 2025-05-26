@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dokumentasi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dokumentasi.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <nav class="sidebar close">
+       <header>
+            <div class="imgtext">
+                <span class="image1">
+                    <img class="apaya1" src="foto/logo-bpkb (1).png" alt="logo1">
+                </span>
+                <span class="image2">
+                    <img class="apaya2" src="foto/logo-bpkb (1).png" alt="logo2">
+                </span>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+       </header>
+
+       <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bxs-dashboard icon'></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-camera icon'></i>
+                        <span class="text nav-text">Dokumentasi</span>
+                    </a>
+                </li>
+                 <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-news icon'></i>
+                        <span class="text nav-text">Berita</span>
+                    </a>
+                </li>
+                 <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-calendar-event icon'></i>
+                        <span class="text nav-text">Operasi</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li class="">
+                    <a href="#">
+                        <i class='bx bx-user-circle icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+            <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+        </div>
+        </div>
+    </nav>
+
+  <div class="main">
+    <h1>Dokumentasi</h1>
+    <div class="grid">
+      <!-- Card Foto Saja -->
+    <div class="card">
+        <img class="apaya1" src="foto/ipb foto.png" alt="logo1">
+    
+    <div class="card-text">
+        <p class="judul"><span class="label">Judul Dokumentasi:</span> Gedung Rektorat IPB</p>
+    </div>
+        <div class="actions">
+        <span class="date"><i class='bx bx-calendar'></i> 12 Dec, 2021</span>
+        <div class="action-btns">
+            <button class="edit"><i class='bx bx-edit'></i></button>
+            <button class="delete"><i class='bx bx-trash'></i></button>
+        </div>
+        </div>
+
+    </div>
+
+      <div class="card">
+                <img class="apaya1" src="foto/ipb foto.png" alt="logo1">
+    
+    <div class="card-text">
+        <p class="judul"><span class="label">Judul Dokumentasi:</span> Gedung Rektorat IPB</p>
+    </div>
+
+    <div class="actions">
+        <span class="date"><i class='bx bx-calendar'></i> 12 Dec, 2021</span>
+        <button class="edit"><i class='bx bx-edit'></i></button>
+        <button class="delete"><i class='bx bx-trash'></i></button>
+    </div>
+      </div>
+      <div class="card">
+               <img class="apaya1" src="foto/ipb foto.png" alt="logo1">
+    
+    <div class="card-text">
+        <p class="judul"><span class="label">Judul Dokumentasi:</span> Gedung Rektorat IPB</p>
+    </div>
+
+    <div class="actions">
+        <span class="date"><i class='bx bx-calendar'></i> 12 Dec, 2021</span>
+        <button class="edit"><i class='bx bx-edit'></i></button>
+        <button class="delete"><i class='bx bx-trash'></i></button>
+    </div>
+      </div>
+      <!-- FAB Tambah -->
+<button class="fab-add">
+  <i class='bx bx-plus'></i>
+</button>
+
+    </div>
+
+
+
+    <script>
+  const sidebar = document.querySelector(".sidebar");
+  const toggle = document.querySelector(".toggle");
+
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+  });
+</script>
+
+</body>
+</html>
