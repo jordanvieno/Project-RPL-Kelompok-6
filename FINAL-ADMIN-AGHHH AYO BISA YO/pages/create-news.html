@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create News</title>
+  <!--<link rel="stylesheet" href="createberita.css">-->
+  <style>
+            * {
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        }
+
+        body {
+        background-color: #DBE7FF;
+        }
+
+        .container {
+        display: flex;
+        min-height: 100vh;
+        background-color: #DBE7FF;
+        }
+
+        .main {
+        flex: 1;
+        padding: 40px;
+        background-color: #f4f7fd;
+        }
+
+        h1 {
+        font-size: 24px;
+        margin-bottom: 24px;
+        }
+
+        .form-news {
+        background-color: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-news label {
+        display: block;
+        font-weight: 600;
+        margin-top: 16px;
+        margin-bottom: 6px;
+        }
+
+        .form-news input[type="text"],
+        .form-news input[type="date"],
+        .form-news input[type="file"],
+        .form-news textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        background-color: #F1F4FA;
+        font-size: 14px;
+        }
+
+        textarea {
+        height: 120px;
+        resize: none;
+        }
+
+        .form-row {
+        display: flex;
+        gap: 16px;
+        }
+
+        .form-col {
+        flex: 1;
+        }
+
+        .input-icon {
+        position: relative;
+        }
+
+        .input-icon .icon {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        pointer-events: none;
+        color: #9ca3af;
+        }
+
+        .form-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+        margin-top: 24px;
+        }
+
+        .btn-outline {
+        padding: 10px 20px;
+        border: 2px solid #3A36DB;
+        background: white;
+        color: #3A36DB;
+        border-radius: 10px;
+        cursor: pointer;
+        }
+
+        .btn-outline:hover {
+        background-color: #eff6ff;
+        }
+
+        .btn-primary {
+        padding: 10px 20px;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        }
+
+        .btn-primary:hover {
+        background-color: #2563eb;
+        }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    
+
+    <!-- Main Content -->
+    <main class="main">
+      <form class="form-news">
+        <h1>Create News</h1>
+        <label>Judul</label>
+        <input type="text" placeholder="Title">
+
+        <div class="form-row">
+          <div class="form-col">
+            <label>Tanggal</label>
+            <div class="input-icon">
+              <input type="date">
+              <span class="icon">📅</span>
+            </div>
+          </div>
+          <div class="form-col">
+            <label>Penulis</label>
+            <input type="text" placeholder="Title">
+          </div>
+        </div>
+
+        <label>Isi Berita</label>
+        <textarea placeholder="Please enter word"></textarea>
+
+        <label>Foto</label>
+        <input type="file">
+
+        <div class="form-buttons">
+          <button type="button" class="btn-outline">Upload</button>
+          <button type="submit" class="btn-primary">Save Draft</button>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

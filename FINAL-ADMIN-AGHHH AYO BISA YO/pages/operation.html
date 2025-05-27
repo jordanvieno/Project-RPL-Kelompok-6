@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Operation Update</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #DBE7FF;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #1f2937;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 20px;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .score {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1d4ed8;
+      margin-bottom: 12px;
+    }
+
+    .card input {
+      width: 100%;
+      padding: 8px;
+      font-size: 13px;
+      border: none;
+      background-color: #f1f5f9;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .card button {
+      background-color: #3A36DB;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+
+    .card button:hover {
+      background-color: #6254FF;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Operation</h1>
+  <div class="grid">
+    <div class="card">
+      <h3>Transportation</h3>
+      <p class="score" id="score-transportation">140/300</p>
+      <input type="text" id="input-transportation" placeholder="New Data">
+      <button onclick="updateScore('transportation')">Update Data</button>
+    </div>
+    <div class="card">
+      <h3>Energy Conversation</h3>
+      <p class="score" id="score-energy">140/300</p>
+      <input type="text" id="input-energy" placeholder="New Data">
+      <button onclick="updateScore('energy')">Update Data</button>
+    </div>
+    <div class="card">
+      <h3>Water</h3>
+      <p class="score" id="score-water">140/300</p>
+      <input type="text" id="input-water" placeholder="New Data">
+      <button onclick="updateScore('water')">Update Data</button>
+    </div>
+    <div class="card">
+      <h3>Education and Research</h3>
+      <p class="score" id="score-education">140/300</p>
+      <input type="text" id="input-education" placeholder="New Data">
+      <button onclick="updateScore('education')">Update Data</button>
+    </div>
+    <div class="card">
+      <h3>Waste</h3>
+      <p class="score" id="score-waste">140/300</p>
+      <input type="text" id="input-waste" placeholder="New Data">
+      <button onclick="updateScore('waste')">Update Data</button>
+    </div>
+    <div class="card">
+      <h3>Setting and Infrastructure</h3>
+      <p class="score" id="score-infra">140/300</p>
+      <input type="text" id="input-infra" placeholder="New Data">
+      <button onclick="updateScore('infra')">Update Data</button>
+    </div>
+  </div>
+
+  <script>
+    function updateScore(id) {
+      const input = document.getElementById(`input-${id}`);
+      const score = document.getElementById(`score-${id}`);
+      const value = input.value.trim();
+
+      const pattern = /^(\d+)(\/\d+)?$/; // contoh: 120 atau 140/300
+
+      if (pattern.test(value)) {
+        score.textContent = value;
+        input.value = '';
+      } else {
+        alert("Masukkan angka atau format seperti 120 atau 140/300.");
+        input.focus();
+      }
+    }
+  </script>
+
+</body>
+</html>

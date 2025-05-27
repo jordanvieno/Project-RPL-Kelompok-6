@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    * {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --body-color: #DBE7FF;
+      --primary-color: #3A36DB;
+      --primary-color-light: #6254FF;
+    }
+
+    body {
+      background: var(--body-color);
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 32px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-container h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .form-container label {
+      font-size: 13px;
+      font-weight: 500;
+      display: block;
+      margin: 14px 0 6px;
+      color: #374151;
+    }
+
+    .form-container input[type="file"] {
+      margin-bottom: 18px;
+      width: 100%;
+    }
+
+    .image-preview {
+      background-color: #e5e7eb;
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .image-preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    .image-preview .icon {
+      font-size: 28px;
+      color: #9ca3af;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #f3f4f6;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .outline-btn {
+      background-color: white;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .outline-btn:hover {
+      background-color: #eff6ff;
+    }
+
+    .primary-btn {
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .primary-btn:hover {
+      background-color: var(--primary-color-light);
+    }
+
+    .fab-add {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Create Documentation</h1>
+
+    <label for="upload">Foto</label>
+    <input type="file" id="upload" accept="image/*" onchange="previewImage(event)" />
+
+    <p>Preview</p>
+    <div class="image-preview" id="imagePreview">
+      <span class="icon">🖼️</span>
+    </div>
+
+    <label for="description">Keterangan Foto</label>
+    <input type="text" id="description" placeholder="Title" />
+
+    <label for="tanggal">Tanggal</label>
+    <input type="date" id="tanggal" />
+
+    <div class="button-group">
+      <button class="outline-btn">Upload</button>
+      <button class="primary-btn">Save Draft</button>
+    </div>
+  </div>
+
+  <script>
+    function previewImage(event) {
+      const file = event.target.files[0];
+      const imagePreview = document.getElementById('imagePreview');
+
+      if (!file) {
+        imagePreview.innerHTML = `<span class="icon">🖼️</span>`;
+        return;
+      }
+
+      if (!file.type.startsWith("image/")) {
+        alert("File harus berupa gambar.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        imagePreview.innerHTML = `<img src="${e.target.result}" alt="Preview" style="max-width: 100%; max-height: 100%; object-fit: cover;">`;
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+
+</body>
+</html>
